@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Signup Page</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-hover: #4338ca;
+            --background: #f9fafb;
+            --text-color: #111827;
+            --light-gray: #e5e7eb;
+            --medium-gray: #9ca3af;
+            --error-color: #ef4444;
+            --success-color: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .auth-container {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .auth-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 28rem;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+       
+
+        .auth-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        .form-control.error {
+            border-color: var(--error-color);
+        }
+
+        .error-message {
+            font-size: 0.75rem;
+            color: var(--error-color);
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .show-error {
+            display: block;
+        }
+
+        .password-toggle {
+            position: relative;
+        }
+
+        .password-toggle-icon {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            color: var(--medium-gray);
+            cursor: pointer;
+        }
+
+        .btn {
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .auth-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--medium-gray);
+        }
+
+        .auth-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-link:hover {
+            text-decoration: underline;
+        }
+
+        .auth-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0.5rem;
+            background: linear-gradient(90deg, #4f46e5, #ec4899);
+        }
+
+        @media (max-width: 640px) {
+            .auth-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Success message styling */
+        .success-message {
+            display: none;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--success-color);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--success-color);
+            font-size: 0.875rem;
+        }
+
+        .show-success {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-decoration"></div>
+            <div class="auth-header">
+              
+                <h1 class="auth-title">Create your account</h1>
+                
+            </div>
+
+            <div class="success-message" id="successMessage">
+                Account created successfully! Redirecting you to dashboard...
+            </div>
+
+            <form class="auth-form" id="signupForm">
+                <div class="form-group">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name">
+                    <span class="error-message" id="nameError">Please enter your full name</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email id">
+                    <span class="error-message" id="emailError">Please enter a valid email address</span>
+                </div>
+
+                <div class="form-group password-toggle">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="••••••••">
+                    <span class="password-toggle-icon" id="togglePassword">👁️</span>
+                    <span class="error-message" id="passwordError">Password must be at least 8 characters</span>
+                </div>
+
+                <div class="form-group password-toggle">
+                    <label for="confirmPassword" class="form-label">Confirm Password</label>
+                    <input type="password" id="confirmPassword" class="form-control" placeholder="••••••••">
+                    <span class="error-message" id="confirmPasswordError">Passwords don't match</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+
+           
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signupForm = document.getElementById('signupForm');
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            const successMessage = document.getElementById('successMessage');
+
+            // Toggle password visibility
+            if (togglePassword && passwordInput) {
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    
+                    // Change the icon (this would be better with actual icons, but using text for simplicity)
+                    togglePassword.textContent = type === 'password' ? '👁️' : '👁️';
+                });
+            }
+
+            // Form validation and submission
+            if (signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    let isValid = true;
+                    const name = document.getElementById('name');
+                    const email = document.getElementById('email');
+                    const password = document.getElementById('password');
+                    const confirmPassword = document.getElementById('confirmPassword');
+                    
+                    // Reset errors
+                    document.querySelectorAll('.error-message').forEach(el => {
+                        el.classList.remove('show-error');
+                    });
+                    document.querySelectorAll('.form-control').forEach(el => {
+                        el.classList.remove('error');
+                    });
+
+                    // Validate name
+                    if (!name.value.trim()) {
+                        document.getElementById('nameError').classList.add('show-error');
+                        name.classList.add('error');
+                        isValid = false;
+                    }
+
+                    // Validate email
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!email.value.trim() || !emailRegex.test(email.value)) {
+                        document.getElementById('emailError').classList.add('show-error');
+                        email.classList.add('error');
+                        isValid = false;
+                    }
+
+                    // Validate password
+                    if (password.value.length < 8) {
+                        document.getElementById('passwordError').classList.add('show-error');
+                        password.classList.add('error');
+                        isValid = false;
+                    }
+
+                    // Validate confirm password
+                    if (password.value !== confirmPassword.value) {
+                        document.getElementById('confirmPasswordError').classList.add('show-error');
+                        confirmPassword.classList.add('error');
+                        isValid = false;
+                    }
+
+                    // If form is valid, show success and simulate registration
+                    if (isValid) {
+                        successMessage.classList.add('show-success');
+                        
+                        // Simulate successful signup and redirect
+                        setTimeout(() => {
+                            console.log('Registration successful for:Welcome to Tawakkul', {
+                                name: name.value,
+                                email: email.value,
+                                
+                                
+                            });
+                            
+                            // In a real app, you would redirect to dashboard or next page
+                            window.location.href = './index.html';
+                           
+                    
+                        }, 1000);
+                    }
+                });
+            }
+
+            // Improve usability by removing error when user starts typing
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.addEventListener('input', function() {
+                    this.classList.remove('error');
+                    const errorId = this.id + 'Error';
+                    const errorElement = document.getElementById(errorId);
+                    if (errorElement) {
+                        errorElement.classList.remove('show-error');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+
+
+</body>
+</html>
