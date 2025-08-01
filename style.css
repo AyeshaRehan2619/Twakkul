@@ -540,7 +540,7 @@ footer svg{
   }
  
   .header__content h1{
-    font-size: 2rem;
+    font-size: 2.5rem;
     padding: 0;
   
   }
@@ -549,7 +549,7 @@ footer svg{
     
   }
   .header__content img{
-    max-width: 50vw;
+    max-width: 60vw;
     margin: 10px auto;
     min-height: 8vh;
   }
@@ -618,7 +618,7 @@ footer svg{
     width: 120vw;
   }
   footer h2{
-font-size: 1rem;
+font-size: 1.5rem;
   }
 }
 
