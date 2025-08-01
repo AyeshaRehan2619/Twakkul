@@ -1,2 +1,0 @@
-# Tawakkul
-Islamic Educational Website
