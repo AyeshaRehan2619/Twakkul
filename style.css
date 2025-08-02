@@ -577,7 +577,7 @@ footer svg{
   
   .surah h1{
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 400;
   color: purple;
 }
 .surah p{
@@ -612,6 +612,7 @@ footer svg{
 font-size: 1.5rem;
   }
 }
+
 
 
 
