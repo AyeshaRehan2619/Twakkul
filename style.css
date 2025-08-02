@@ -576,7 +576,7 @@ footer svg{
   }
   
   .surah h1{
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: purple;
 }
@@ -590,13 +590,7 @@ footer svg{
   .tafseer__card{
     margin: 10px;
   }
-  .tafseer h1{
-  font-size: 1rem;
-  font-weight: 700;
-  
-}
-.tafseer p{
-  font-size: 1rem;
+ 
 }
    .Aayah__grid  {
     grid-template-columns: repeat(1, 1fr);
@@ -611,9 +605,7 @@ footer svg{
 
   
 
-.tafseer p{
-  font-size: 1rem;
-}
+
   footer{
     width: 120vw;
   }
@@ -621,6 +613,7 @@ footer svg{
 font-size: 1.5rem;
   }
 }
+
 
 
 
