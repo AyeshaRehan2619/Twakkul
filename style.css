@@ -554,7 +554,7 @@ footer svg{
     min-height: 8vh;
   }
 .e-books h1{
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
 }
 .e-books p{
@@ -603,8 +603,6 @@ footer svg{
   }
   
 
-  
-
 
   footer{
     width: 120vw;
@@ -613,6 +611,7 @@ footer svg{
 font-size: 1.5rem;
   }
 }
+
 
 
 
