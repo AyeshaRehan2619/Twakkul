@@ -254,6 +254,7 @@ margin: 10px;
   margin: 30px auto;
   color: black;
   font-size: 2rem;
+  font-weight:700;
 
 }
 .surah p{
@@ -575,7 +576,11 @@ footer svg{
    font-weight: 700;
   }
   
- 
+ .surah h1{
+   font-size:1.5rem;
+   font-weight:700;
+   text-align:center;
+ }
 .surah p{
   font-size: 0.9rem;
   text-align:center;
@@ -608,6 +613,7 @@ footer svg{
 font-size: 1.5rem;
   }
 }
+
 
 
 
